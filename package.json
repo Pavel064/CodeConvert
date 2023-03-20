@@ -1,5 +1,5 @@
 {
-  "name": "@texttree/template-rcl",
+  "name": "@texttree/codeconvert-rcl",
   "author": "TextTree.org",
   "version": "0.1.1",
   "description": "",
@@ -10,14 +10,14 @@
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
-  "url": "https://github.com/texttree/template-rcl",
-  "homepage": "https://github.com/texttree/template-rcl#readme",
+  "url": "https://github.com/Pavel064/CodeConvert-rcl",
+  "homepage": "https://github.com/Pavel064/CodeConvert-rcl#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/texttree/template-rcl.git"
+    "url": "git+https://github.com/Pavel064/CodeConvert-rcl.git"
   },
   "bugs": {
-    "url": "https://github.com/texttree/template-rcl/issues"
+    "url": "https://github.com/Pavel064/CodeConvert-rcl/issues"
   },
   "publishConfig": {
     "access": "public"
