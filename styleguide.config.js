@@ -10,8 +10,8 @@ let sections = [
   {
     name: 'Conversion block',
     components: [
-      'src/components/MDtoJSON/MDtoJSON.js',
-      'src/components/JSONtoMD/JSONtoMD.js',
+      'src/components/MdToJson/MdToJson.js',
+      'src/components/JsonToMd/JsonToMd.js',
     ],
   },
 ];

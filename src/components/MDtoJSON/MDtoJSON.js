@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function MDtoJSON(md) {
+function MdToJson(md) {
   let _markdown = md.replaceAll('\u200B', '').split(/\n\s*\n\s*/);
   const title = _markdown.shift().trim().slice(1);
   let reference = _markdown.pop().trim().slice(1, -1);
@@ -24,13 +24,13 @@ function MDtoJSON(md) {
   return { verseObjects, title, reference };
 }
 
-MDtoJSON.defaultProps = {
+MdToJson.defaultProps = {
   md: '',
 };
 
-MDtoJSON.propTypes = {
+MdToJson.propTypes = {
   /** .MD file */
   md: PropTypes.string,
 };
 
-export default MDtoJSON;
+export default MdToJson;

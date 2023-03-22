@@ -1,2 +1,2 @@
-export { default as MDtoJSON } from './MDtoJSON/MDtoJSON';
-export { default as JSONtoMD } from './JSONtoMD/JSONtoMD';
+export { default as MdToJson } from './MdToJson/MdToJson';
+export { default as JsonToMd } from './JsonToMd/JsonToMd';

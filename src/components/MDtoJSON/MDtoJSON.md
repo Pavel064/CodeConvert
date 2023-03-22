@@ -1,7 +1,7 @@
 ### An example of converting an MD file to a JSON object
 
 ```jsx
-import { MDtoJSON } from '@texttree/codeconvert-rcl';
+import { MdToJson } from '@texttree/codeconvert-rcl';
 import React, { useState, useEffect } from 'react';
 import ReactJson from 'react-json-view';
 import axios from 'axios';
@@ -15,7 +15,7 @@ function Component() {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(url);
-      const jsonData = MDtoJSON(data);
+      const jsonData = MdToJson(data);
       setJsonData(jsonData);
     };
 

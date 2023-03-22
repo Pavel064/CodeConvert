@@ -1,1 +1,1 @@
-export { default } from './MDtoJSON';
+export { default } from './MdToJson';
