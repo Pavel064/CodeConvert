@@ -1,7 +1,7 @@
 ### An example of converting a JSON object back to an MD file
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import axios from 'axios';
@@ -30,15 +30,12 @@ function Component() {
     const generateMarkdown = async () => {
       if (jsonData) {
         const mdData = await JsonToMd(jsonData);
-        setMdData(mdData);
+        setMdData(mdData.slice(0, 196));
       }
     };
 
     generateMarkdown();
   }, [jsonData]);
-
-  // console.log(mdData?.slice(0, 100));
-  // const sliced = mdData?.substring(0, 100);
 
   return !jsonData ? <div>Loading...</div> : <ReactMarkdown children={mdData} />;
 }
