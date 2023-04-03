@@ -74,10 +74,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-json-view": "^1.21.3",
+    "react-markdown": "^8.0.6",
     "react-styleguidist": "^13.0.0",
     "shx": "^0.3.4",
     "standard-version": "^9.5.0",
-    "webpack": "^5.75.0",
-    "react-markdown": "^8.0.6"
+    "webpack": "^5.75.0"
   }
 }

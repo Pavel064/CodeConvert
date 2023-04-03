@@ -1,7 +1,8 @@
+### An example of converting a JSON object to HTML
+
 ```jsx
 import { useState, useEffect } from 'react';
 
-import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 
 import { MdToJson, JsonToHtml } from '@texttree/codeconvert-rcl';
@@ -34,8 +35,6 @@ function Component() {
 
     generateHtml();
   }, [jsonData]);
-
-  console.log(htmlData);
 
   return !jsonData ? (
     <div>Loading...</div>
