@@ -13,6 +13,7 @@ let sections = [
       'src/components/MdToJson/MdToJson.js',
       'src/components/JsonToMd/JsonToMd.js',
       'src/components/JsonToHtml/JsonToHtml.js',
+      'src/components/JsonToPdf/JsonToPdf.js',
     ],
   },
 ];
