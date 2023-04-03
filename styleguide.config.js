@@ -12,6 +12,7 @@ let sections = [
     components: [
       'src/components/MdToJson/MdToJson.js',
       'src/components/JsonToMd/JsonToMd.js',
+      'src/components/JsonToHtml/JsonToHtml.js',
     ],
   },
 ];
