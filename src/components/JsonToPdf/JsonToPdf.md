@@ -1,36 +1,57 @@
-### An example of converting an MD file to a JSON object
+### An example of converting a JSON object to PDF
 
 ```jsx
 import { useState, useEffect } from 'react';
+import { MdToJson, JsonToHtml, JsonToPdf } from '@texttree/codeconvert-rcl';
 import axios from 'axios';
-import ReactJson from 'react-json-view';
-import JsonToPdf from './JsonToPdf';
 
 function Component() {
   const url =
-    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/01.md';
+    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/41.md';
 
   const [jsonData, setJsonData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [htmlData, setHtmlData] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const { data } = await axios.get(url);
-        const jsonData = JsonToPdf(data);
-        setJsonData(jsonData);
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
+      const { data } = await axios.get(url);
+
+      const jsonData = MdToJson(data);
+      setJsonData(jsonData);
     };
 
     fetchData();
   }, []);
 
-  if (errorMessage) return <div>{errorMessage}</div>;
-  if (!jsonData) return <div>Loading...</div>;
+  useEffect(() => {
+    const generateHtml = async () => {
+      if (jsonData) {
+        const htmlData = await JsonToHtml(jsonData);
+        setHtmlData(htmlData);
+      }
+    };
 
-  return <ReactJson src={jsonData} />;
+    generateHtml();
+  }, [jsonData]);
+
+  const handlePdfCreation = () => {
+    try {
+      JsonToPdf({ htmlData });
+    } catch (error) {
+      console.error(error);
+      alert('Error creating PDF!');
+    }
+  };
+
+  return (
+    <div className="Component">
+      {jsonData ? (
+        <button onClick={handlePdfCreation}>Create PDF</button>
+      ) : (
+        <div>Loading...</div>
+      )}
+    </div>
+  );
 }
 
 <Component />;

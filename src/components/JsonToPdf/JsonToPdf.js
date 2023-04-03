@@ -1,29 +1,31 @@
-function JsonToPdf(md) {
-  try {
-    let _markdown = md.replaceAll('\u200B', '').split(/\n\s*\n\s*/);
-    const title = _markdown.shift().trim().slice(1);
-    let reference = _markdown.pop().trim().slice(1, -1);
-    if (reference === '') {
-      reference = _markdown.pop().trim().slice(1, -1);
-    }
-    const verseObjects = [];
-
-    for (let n = 0; n < _markdown.length / 2; n++) {
-      let urlImage;
-      let text;
-      if (/\(([^)]*)\)/g.test(_markdown[n * 2])) {
-        urlImage = /\(([^)]*)\)/g.exec(_markdown[n * 2])[1];
-        text = _markdown[n * 2 + 1];
-      } else {
-        text = _markdown[n * 2] + '\n' + _markdown[n * 2 + 1];
-      }
-      verseObjects.push({ urlImage, text, verse: (n + 1).toString() });
-    }
-
-    return { verseObjects, title, reference };
-  } catch (error) {
-    throw new Error('Ошибка при конвертации Markdown в JSON: ' + error.message);
+function JsonToPdf({ htmlData, htmlLang = 'ru', fileName = 'unnamed' }) {
+  if (!htmlData) {
+    throw new Error('No HTML data provided');
   }
+
+  // Checking that htmlData is valid HTML
+  const parser = new DOMParser();
+  const parsedHtml = parser.parseFromString(htmlData, 'text/html');
+  if (parsedHtml.querySelector('parsererror')) {
+    throw new Error('Invalid HTML');
+  }
+
+  let new_window = window.open();
+  new_window?.document.write(`<html lang="${htmlLang}">
+  <head>
+      <meta charset="UTF-8"/>
+      <title>${fileName}</title>
+      <style type="text/css">
+        .break {
+            page-break-after: always;
+        }
+    </style>
+  </head>
+  <body onLoad="window.print()">
+      ${htmlData}
+      </body>
+      </html>`);
+  new_window?.document.close();
 }
 
 export default JsonToPdf;
