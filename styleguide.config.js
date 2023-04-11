@@ -14,6 +14,7 @@ let sections = [
       'src/components/JsonToMd/JsonToMd.js',
       'src/components/JsonToHtml/JsonToHtml.js',
       'src/components/JsonToPdf/JsonToPdf.js',
+      'src/components/MdToZip/MdToZip.js',
     ],
   },
 ];

@@ -78,6 +78,7 @@
     "react-styleguidist": "^13.0.0",
     "shx": "^0.3.4",
     "standard-version": "^9.5.0",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "pdfmake": "^0.2.7"
   }
 }
