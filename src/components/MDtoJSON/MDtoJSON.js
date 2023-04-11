@@ -22,7 +22,7 @@ function MdToJson(md) {
 
     return { verseObjects, title, reference };
   } catch (error) {
-    throw new Error('Ошибка при конвертации Markdown в JSON: ' + error.message);
+    throw new Error('Error converting Markdown to JSON: ' + error.message);
   }
 }
 

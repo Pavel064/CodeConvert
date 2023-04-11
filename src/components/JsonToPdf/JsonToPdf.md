@@ -1,58 +1,45 @@
 ### An example of converting a JSON object to PDF
 
 ```jsx
-import { useState, useEffect } from 'react';
-import { MdToJson, JsonToHtml, JsonToPdf } from '@texttree/codeconvert-rcl';
-import axios from 'axios';
+import React, { useState } from 'react';
+import JsonToPdf from './JsonToPdf';
 
-function Component() {
-  const url =
-    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/41.md';
+function App() {
+  const [data, setData] = useState({
+    verseObjects: [
+      {
+        urlImage: 'https://cdn.door43.org/obs/jpg/360px/obs-en-46-01.jpg',
+        text: 'В те времена жил один человек по имени Савл. Он был против учения об Иисусе. Савл присутствовал на том месте, где бросали камни в Стефана, и охранял одежду людей, убивавших его. Затем Савл стал преследовать верующих. Он ходил из дома в дом в Иерусалиме, хватал мужчин и женщин и бросал их в тюрьмы. Однажды Савл пришёл к первосвященнику и попросил у него письма к синагогам в Дамаске, чтобы там у него было право арестовывать и отправлять в Иерусалим последователей Иисуса.',
+      },
+      {
+        urlImage: 'https://cdn.door43.org/obs/jpg/360px/obs-en-46-02.jpg',
+        text: 'Получив такие письма, Савл отправился в Дамаск. Когда он был недалеко от города, яркий свет с неба осветил всё вокруг, и Савл упал на землю. Он услышал, как Кто-то сказал: «Савл! Савл! Почему ты преследуешь Меня?» Савл спросил: «Кто ты, Господин?» Голос ответил: «Я — Иисус, Которого Ты преследуешь!»',
+      },
+    ],
+    title: ' 46. Павел становится учеником Иисуса',
+    reference:
+      'Библейская история из Деяний святых апостолов 8:3; 9:1-31; 11:19-26; 13:1-3',
+  });
 
-  const [jsonData, setJsonData] = useState(null);
-  const [htmlData, setHtmlData] = useState('');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get(url);
-
-      const jsonData = MdToJson(data);
-      setJsonData(jsonData);
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const generateHtml = async () => {
-      if (jsonData) {
-        const htmlData = await JsonToHtml(jsonData);
-        setHtmlData(htmlData);
-      }
-    };
-
-    generateHtml();
-  }, [jsonData]);
-
-  const handlePdfCreation = () => {
-    try {
-      JsonToPdf({ htmlData });
-    } catch (error) {
-      console.error(error);
-      alert('Error creating PDF!');
-    }
+  const styles = {
+    image: {
+      width: 'auto',
+      height: 300,
+      alignment: 'center',
+      margin: [0, 10, 0, 10],
+    },
+    text: {
+      fontSize: 14,
+      margin: [0, 0, 0, 10],
+    },
   };
 
   return (
-    <div className="Component">
-      {jsonData ? (
-        <button onClick={handlePdfCreation}>Create PDF</button>
-      ) : (
-        <div>Loading...</div>
-      )}
+    <div>
+      <JsonToPdf data={data} styles={styles} />
     </div>
   );
 }
 
-<Component />;
+<App />;
 ```

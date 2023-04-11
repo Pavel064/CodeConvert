@@ -3,7 +3,7 @@ async function JsonToMd(ref) {
   const reference = ref.reference ? `_${ref.reference}_` : '';
   let markdown = '';
   ref.verseObjects.forEach((verseObject) => {
-    const { urlImage, text, verse } = verseObject;
+    const { urlImage, text } = verseObject;
     if (urlImage) {
       markdown += `![OBS Image](${urlImage})\n\n`;
     }
