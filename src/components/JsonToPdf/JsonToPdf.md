@@ -26,7 +26,7 @@ function App() {
       width: 'auto',
       height: 300,
       alignment: 'center',
-      margin: [0, 10, 0, 10],
+      margin: [0, 0, 0, 16],
     },
     text: {
       fontSize: 14,

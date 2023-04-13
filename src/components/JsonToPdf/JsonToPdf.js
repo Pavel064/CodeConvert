@@ -9,11 +9,10 @@ function JsonToPdf({ data, styles, filename }) {
     const docDefinition = {
       content: [{ text: data.title, style: 'title' }, { text: '\n\n' }],
       styles: {
-        title: { fontSize: 18, bold: true, alignment: 'center' },
-        reference: { fontSize: 14, bold: true, alignment: 'center' },
-        verse: { fontSize: 12, margin: [0, 0, 0, 10] },
-        image: { margin: [0, 10, 0, 10], alignment: 'center' },
-        text: { fontSize: 12, margin: [0, 0, 0, 10] },
+        title: { fontSize: 32, bold: true, alignment: 'center' },
+        reference: { fontSize: 14, italics: true, alignment: 'center' },
+        image: { margin: [0, 0, 0, 0], alignment: 'center' },
+        text: { fontSize: 12, margin: [0, 0, 0, 16] },
         ...styles,
       },
     };
