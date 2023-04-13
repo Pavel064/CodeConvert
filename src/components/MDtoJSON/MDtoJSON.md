@@ -17,7 +17,9 @@ function Component() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(url);
-        const jsonData = MdToJson(data);
+        const { verseObjects, ...remainingData } = MdToJson(data);
+        const limitedVerseObjects = verseObjects.slice(0, 3);
+        const jsonData = { ...remainingData, verseObjects: limitedVerseObjects };
         setJsonData(jsonData);
       } catch (error) {
         setErrorMessage(error.message);
