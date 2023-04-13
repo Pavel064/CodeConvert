@@ -8,11 +8,21 @@ import axios from 'axios';
 import { MdToJson, JsonToHtml } from '@texttree/codeconvert-rcl';
 
 function Component() {
-  const url =
-    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/30.md';
-
+  const [showResult, setShowResult] = useState(false);
   const [jsonData, setJsonData] = useState(null);
   const [htmlData, setHtmlData] = useState('');
+
+  const btnStyle = {
+    marginBottom: '10px',
+    marginLeft: '40px',
+    padding: '15px',
+    backgroundColor: '#FFCD5C',
+    border: 'none',
+    borderRadius: '10px',
+    cursor: 'pointer',
+  };
+  const url =
+    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/30.md';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +37,7 @@ function Component() {
 
   useEffect(() => {
     const generateHtml = async () => {
-      if (jsonData) {
+      if (jsonData && showResult) {
         const styleObj = {
           contentWrapper: 'background-color: #f1f1f1; padding:32px',
           title:
@@ -43,12 +53,21 @@ function Component() {
     };
 
     generateHtml();
-  }, [jsonData]);
+  }, [jsonData, showResult]);
+
+  const handleShowResult = () => {
+    setShowResult((prev) => !prev);
+  };
 
   return !jsonData ? (
     <div>Loading...</div>
   ) : (
-    <div dangerouslySetInnerHTML={{ __html: htmlData }} />
+    <>
+      <button onClick={handleShowResult} style={btnStyle}>
+        {showResult ? 'Hide' : 'Show'} Result
+      </button>
+      {showResult && <div dangerouslySetInnerHTML={{ __html: htmlData }} />}
+    </>
   );
 }
 
