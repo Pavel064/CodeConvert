@@ -28,7 +28,16 @@ function Component() {
   useEffect(() => {
     const generateHtml = async () => {
       if (jsonData) {
-        const htmlData = await JsonToHtml(jsonData);
+        const styleObj = {
+          contentWrapper: 'background-color: #f1f1f1; padding:32px',
+          title:
+            'font-size: 24px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid black',
+          verses: 'font-size: 16px;',
+          paragraph: 'padding-bottom: 16px;',
+          image: 'padding-bottom: 16px;',
+          reference: 'font-style: italic; margin-top: 16px',
+        };
+        const htmlData = await JsonToHtml(jsonData, styleObj);
         setHtmlData(htmlData);
       }
     };
