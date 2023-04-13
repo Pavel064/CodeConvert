@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div>
-      <JsonToPdf data={data} styles={styles} />
+      <JsonToPdf data={data} styles={styles} filename="my-document.pdf" />
     </div>
   );
 }

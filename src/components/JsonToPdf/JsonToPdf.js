@@ -4,7 +4,7 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-function JsonToPdf({ data, styles }) {
+function JsonToPdf({ data, styles, filename }) {
   const generatePdf = () => {
     const docDefinition = {
       content: [{ text: data.title, style: 'title' }, { text: '\n\n' }],
@@ -33,11 +33,6 @@ function JsonToPdf({ data, styles }) {
 
     const addVerseObjects = async () => {
       for (const verseObject of data.verseObjects) {
-        // docDefinition.content.push({
-        //   text: `стих ${verseObject.verse}`,
-        //   style: 'verse',
-        // });
-
         if (verseObject.urlImage) {
           const imageDataUrl = await getImageDataUrl(verseObject.urlImage);
           docDefinition.content.push({
@@ -57,13 +52,13 @@ function JsonToPdf({ data, styles }) {
     };
 
     addVerseObjects().then(() => {
-      pdfMake.createPdf(docDefinition).open();
+      pdfMake.createPdf(docDefinition).download(filename);
     });
   };
 
   return (
     <div>
-      <button onClick={generatePdf}>Создать PDF</button>
+      <button onClick={generatePdf}>Create PDF</button>
     </div>
   );
 }
