@@ -7,7 +7,7 @@ import MdToZip from './MdToZip';
 
 function Component() {
   const url =
-    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/01.md';
+    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/36.md';
 
   const [jsonData, setJsonData] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -33,19 +33,11 @@ function Component() {
     }
 
     const markdownContent = `# ${jsonData.title}\n\n${jsonData.content}`;
-    MdToZip(markdownContent);
+    MdToZip({ markdown: markdownContent, fileName: 'story-36.md' });
   };
 
   if (errorMessage) return <div>{errorMessage}</div>;
-  if (!jsonData) return <div>Loading...</div>;
-
-  return (
-    <div>
-      <h1>{jsonData.title}</h1>
-      <p>{jsonData.content}</p>
-      <button onClick={handleDownloadZip}>Download Zip</button>
-    </div>
-  );
+  return <button onClick={handleDownloadZip}>Download Zip</button>;
 }
 
 <Component />;
