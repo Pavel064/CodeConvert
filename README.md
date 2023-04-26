@@ -12,7 +12,7 @@
   </a>
 </div>
 
-<h2><div align="center">CodeConvert-rcl</div></h2>
+<h2><div align="center">FormatConvert-rcl</div></h2>
 <br />
 
 <center><strong><a href="https://template-rcl.netlify.app">Explore the docs and code playground »</a></strong></center>
@@ -86,13 +86,13 @@ Add the library to your React app
 - yarn
 
 ```bash
-yarn add @texttree/CodeConvert-rcl
+yarn add @texttree/formatconvert-rcl
 ```
 
 - npm
 
 ```bash
-npm install @texttree/CodeConvert-rcl
+npm install @texttree/formatconvert-rcl
 ```
 
 <a style="text-align: right; display: block" href="#top">(back to top)</a>

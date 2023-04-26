@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 
 import axios from 'axios';
 
-import { MdToJson, JsonToMd } from '@texttree/codeconvert-rcl';
+import { MdToJson, JsonToMd } from '@texttree/formatconvert-rcl';
 
 function Component() {
   const url =
