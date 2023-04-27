@@ -1,5 +1,5 @@
 {
-  "name": "@texttree/codeconvert-rcl",
+  "name": "@texttree/formatconvert-rcl",
   "author": "TextTree.org",
   "version": "0.1.1",
   "description": "",
@@ -10,14 +10,14 @@
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
-  "url": "https://github.com/Pavel064/CodeConvert-rcl",
-  "homepage": "https://github.com/Pavel064/CodeConvert-rcl#readme",
+  "url": "https://github.com/Pavel064/FormatConvert-rcl",
+  "homepage": "https://github.com/Pavel064/FormatConvert-rcl#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pavel064/CodeConvert-rcl.git"
+    "url": "git+https://github.com/Pavel064/FormatConvert-rcl.git"
   },
   "bugs": {
-    "url": "https://github.com/Pavel064/CodeConvert-rcl/issues"
+    "url": "https://github.com/Pavel064/FormatConvert-rcl/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -74,10 +74,15 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-json-view": "^1.21.3",
+    "react-markdown": "^8.0.6",
     "react-styleguidist": "^13.0.0",
     "shx": "^0.3.4",
     "standard-version": "^9.5.0",
-    "webpack": "^5.75.0",
-    "react-markdown": "^8.0.6"
+    "webpack": "^5.75.0"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "pdfmake": "^0.2.7"
   }
 }
