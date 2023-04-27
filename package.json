@@ -69,7 +69,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "pdfmake": "^0.2.7",
     "prettier": "^2.8.3",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -79,8 +78,11 @@
     "react-styleguidist": "^13.0.0",
     "shx": "^0.3.4",
     "standard-version": "^9.5.0",
-    "webpack": "^5.75.0",
+    "webpack": "^5.75.0"
+  },
+  "dependencies": {
     "file-saver": "^2.0.5",
-    "jszip": "^3.10.1"
+    "jszip": "^3.10.1",
+    "pdfmake": "^0.2.7"
   }
 }
