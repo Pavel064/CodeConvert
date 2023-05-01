@@ -1,4 +1,4 @@
-async function JsonToMd(ref) {
+function JsonToMd(ref) {
   const title = ref.title ? `# ${ref.title}\n\n` : '';
   const reference = ref.reference ? `_${ref.reference}_` : '';
   let markdown = '';

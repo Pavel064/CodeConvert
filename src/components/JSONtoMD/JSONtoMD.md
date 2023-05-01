@@ -4,40 +4,32 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import axios from 'axios';
-
-import { MdToJson, JsonToMd } from '@texttree/formatconvert-rcl';
+import { JsonToMd } from '@texttree/formatconvert-rcl';
 
 function Component() {
-  const url =
-    'https://git.door43.org/ru_gl/ru_obs/raw/commit/e562a415f60c5262382ba936928f32479056310e/content/01.md';
+  const [data, setData] = useState({
+    verseObjects: [
+      {
+        urlImage: 'https://cdn.door43.org/obs/jpg/360px/obs-en-04-01.jpg',
+        text: 'Спустя много лет после потопа в мире снова стало много людей, и они по-прежнему были злы и совершали грехи против Бога и против друг друга. В то время все люди говорили на одном языке. И хотя Бог повелел людям расселиться по всей земле, они, наоборот, собрались вместе и принялись строить город.',
+      },
+    ],
+    title: ' 4. Завет Бога с Аврамом',
+    reference: 'Библейская история из Бытия 11-15',
+  });
 
-  const [jsonData, setJsonData] = useState(null);
   const [mdData, setMdData] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get(url);
-
-      const jsonData = MdToJson(data);
-      setJsonData(jsonData);
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     const generateMarkdown = async () => {
-      if (jsonData) {
-        const mdData = await JsonToMd(jsonData);
-        setMdData(mdData.slice(0, 196));
-      }
+      const mdData = await JsonToMd(data);
+      setMdData(mdData);
     };
 
     generateMarkdown();
-  }, [jsonData]);
+  }, [data]);
 
-  return !jsonData ? <div>Loading...</div> : <ReactMarkdown children={mdData} />;
+  return <ReactMarkdown children={mdData} />;
 }
 
 <Component />;
