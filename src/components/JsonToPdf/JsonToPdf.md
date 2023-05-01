@@ -1,11 +1,11 @@
 ### An example of converting a JSON object to PDF
 
 ```jsx
-import React, { useState } from 'react';
+import React from 'react';
 import JsonToPdf from './JsonToPdf';
 
 function App() {
-  const [data, setData] = useState({
+  const data = {
     verseObjects: [
       {
         urlImage: 'https://cdn.door43.org/obs/jpg/360px/obs-en-46-01.jpg',
@@ -19,7 +19,7 @@ function App() {
     title: ' 46. Павел становится учеником Иисуса',
     reference:
       'Библейская история из Деяний святых апостолов 8:3; 9:1-31; 11:19-26; 13:1-3',
-  });
+  };
 
   const styles = {
     image: {
