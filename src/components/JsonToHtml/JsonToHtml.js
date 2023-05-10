@@ -1,6 +1,16 @@
-function JsonToHtml(jsonData, styleObj) {
-  const { title, reference, verseObjects } = jsonData;
+function JsonToHtml(jsonData, styleObj = {}) {
+  const defaultStyleObj = {
+    contentWrapper: 'background-color: #fff; padding: 10px;',
+    title: 'font-size: 20px; font-weight: bold; margin-bottom: 10px;',
+    verses: 'margin-bottom: 20px;',
+    reference: 'font-size: 14px; color: #999;',
+    image: 'max-width: 100%; height: auto;',
+    paragraph: 'font-size: 16px; line-height: 1.5; margin-bottom: 10px;',
+  };
 
+  styleObj = { ...defaultStyleObj, ...styleObj };
+
+  const { title, reference, verseObjects } = jsonData;
   const verseHtml = verseObjects
     .map((verse) => {
       const { urlImage, text } = verse;
